@@ -82,7 +82,7 @@ class LoginPage extends StatelessWidget {
                 Material(
                   child: InkWell(
                     borderRadius: BorderRadius.circular(10),
-                    splashColor: Colors.green,
+                    splashColor: Colors.greenAccent,
                     onTap: () {},
                     child: Container(
                       padding: EdgeInsets.all(9),

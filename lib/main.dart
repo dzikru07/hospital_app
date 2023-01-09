@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Bottom NavBar Demo',
       theme: ThemeData(primaryColor: Colors.blue),
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: const LoginPage(),
     );
   }
 }
