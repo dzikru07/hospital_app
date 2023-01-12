@@ -9,49 +9,51 @@ class ScheduleDetail extends StatelessWidget {
     return Scaffold(
       appBar: _appBar(),
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: EdgeInsets.all(20),
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-              _doctorCard(),
-              const SizedBox(
-                height: 20,
-              ),
-              _queueNumber(),
-              const SizedBox(
-                height: 20,
-              ),
-              _alignPatientDetails(),
-              const SizedBox(
-                height: 10,
-              ),
-              _patiensDetail(),
-              const SizedBox(
-                height: 20,
-              ),
-              _ticketNumber(),
-              const SizedBox(
-                height: 20,
-              ),
-              _editButton(),
-            ],
-          ),
-        ),
+            child: Column(
+          children: [
+            _doctorCard(),
+            SizedBox(
+              height: 20,
+            ),
+            _queueNumber(),
+            SizedBox(
+              height: 20,
+            ),
+            _alignPatientDetails(),
+            SizedBox(
+              height: 10,
+            ),
+            _patientDetails(),
+            SizedBox(
+              height: 20,
+            ),
+            _ticketNumber(),
+            SizedBox(
+              height: 20,
+            ),
+            _editButton(),
+            SizedBox(
+              height: 20,
+            ),
+          ],
+        )),
       ),
     );
   }
 
   Material _editButton() {
     return Material(
-      color: Color(0xff0BB5EB),
+      color: Color(0xff0bb5eb),
       borderRadius: BorderRadius.circular(10),
       child: InkWell(
-        focusColor: Color(0xff0BB5EB),
+        focusColor: const Color(0xff0bb5eb),
         borderRadius: BorderRadius.circular(10),
         splashColor: Colors.green,
         onTap: () {},
         child: Container(
-          padding: EdgeInsets.all(18),
+          padding: const EdgeInsets.all(18),
           width: double.infinity,
           child: Center(
             child: Text(
@@ -76,27 +78,27 @@ class ScheduleDetail extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Ticket number",
+              "Ticket Number",
               style: GoogleFonts.poppins(
                   fontSize: 14,
-                  fontWeight: FontWeight.normal,
-                  color: const Color(0xffCECECE)),
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xffcecece)),
             ),
             Text(
-              "RDS-55115436649445",
+              "DCW-19812991271912",
               style: GoogleFonts.poppins(
                   fontSize: 16,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.bold,
                   color: Colors.black87),
             ),
           ],
         ),
-        Image.asset("assets/images/qr_code.png")
+        Image.asset('assets/images/qr_code.png')
       ],
     );
   }
 
-  Container _patiensDetail() {
+  Container _patientDetails() {
     return Container(
       child: Column(
         children: [
@@ -104,22 +106,22 @@ class ScheduleDetail extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Name",
+                "Patient Details",
                 style: GoogleFonts.poppins(
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
-                    color: const Color(0xffCECECE)),
+                    color: Color(0xffcecece)),
               ),
               Text(
                 "Marchellino",
                 style: GoogleFonts.poppins(
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
-                    color: const Color(0xff0BB5EB)),
+                    color: Color(0xff0bb5eb)),
               ),
             ],
           ),
-          const SizedBox(
+          SizedBox(
             height: 15,
           ),
           Row(
@@ -130,18 +132,18 @@ class ScheduleDetail extends StatelessWidget {
                 style: GoogleFonts.poppins(
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
-                    color: const Color(0xffCECECE)),
+                    color: Color(0xffcecece)),
               ),
               Text(
-                "15 March 1995",
+                "15 March 1996",
                 style: GoogleFonts.poppins(
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
-                    color: const Color(0xff0BB5EB)),
+                    color: Color(0xff0bb5eb)),
               ),
             ],
           ),
-          const SizedBox(
+          SizedBox(
             height: 15,
           ),
           Row(
@@ -152,18 +154,18 @@ class ScheduleDetail extends StatelessWidget {
                 style: GoogleFonts.poppins(
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
-                    color: const Color(0xffCECECE)),
+                    color: Color(0xffcecece)),
               ),
               Text(
-                "Manchesther, England",
+                "Depok, Indonesia",
                 style: GoogleFonts.poppins(
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
-                    color: const Color(0xff0BB5EB)),
+                    color: Color(0xff0bb5eb)),
               ),
             ],
           ),
-          const SizedBox(
+          SizedBox(
             height: 15,
           ),
           Row(
@@ -174,18 +176,18 @@ class ScheduleDetail extends StatelessWidget {
                 style: GoogleFonts.poppins(
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
-                    color: const Color(0xffCECECE)),
+                    color: Color(0xffcecece)),
               ),
               Text(
                 "Marchellino12@Gmail.com",
                 style: GoogleFonts.poppins(
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
-                    color: const Color(0xff0BB5EB)),
+                    color: Color(0xff0bb5eb)),
               ),
             ],
           ),
-          const SizedBox(
+          SizedBox(
             height: 15,
           ),
           Row(
@@ -196,18 +198,18 @@ class ScheduleDetail extends StatelessWidget {
                 style: GoogleFonts.poppins(
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
-                    color: const Color(0xffCECECE)),
+                    color: Color(0xffcecece)),
               ),
               Text(
-                "+62 851 9982 8921",
+                "+62 812 1291 1291",
                 style: GoogleFonts.poppins(
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
-                    color: const Color(0xff0BB5EB)),
+                    color: Color(0xff0bb5eb)),
               ),
             ],
           ),
-          const SizedBox(
+          SizedBox(
             height: 15,
           ),
         ],
@@ -228,10 +230,10 @@ class ScheduleDetail extends StatelessWidget {
 
   Container _queueNumber() {
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(25),
-        color: const Color(0xffF4F1FF),
+        color: Color(0xfff4f1ff),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -270,15 +272,15 @@ class ScheduleDetail extends StatelessWidget {
 
   Container _doctorCard() {
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(25),
-        color: const Color(0xff0BB5EB),
+        color: Color(0xff0bb5eb),
       ),
       child: Row(
         children: [
           Image.asset("assets/images/image_profile_2.png"),
-          const SizedBox(
+          SizedBox(
             width: 10,
           ),
           Column(
@@ -288,7 +290,7 @@ class ScheduleDetail extends StatelessWidget {
                 "dr. Anggeline Finn",
                 style: GoogleFonts.poppins(
                     fontSize: 16,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.bold,
                     color: Colors.white),
               ),
               Text(
@@ -299,7 +301,7 @@ class ScheduleDetail extends StatelessWidget {
                     color: Colors.white),
               ),
             ],
-          ),
+          )
         ],
       ),
     );
@@ -309,15 +311,11 @@ class ScheduleDetail extends StatelessWidget {
     return AppBar(
       elevation: 0,
       backgroundColor: Colors.transparent,
-      iconTheme:
-          const IconThemeData(color: Color(0xff717171) //change your color here
-              ),
+      iconTheme: IconThemeData(color: Color(0xff717171)),
       title: Text(
-        "Welcome Back,",
+        "Schedule Detail",
         style: GoogleFonts.poppins(
-            fontSize: 14,
-            fontWeight: FontWeight.normal,
-            color: const Color(0xff717171)),
+            fontSize: 14, fontWeight: FontWeight.normal, color: Colors.grey),
       ),
     );
   }

@@ -1,79 +1,79 @@
-// ignore_for_file: non_constant_identifier_names
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hospital_app/content/schedule/schedule_detail.dart';
+
+import '../schedule/schedule_detail.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
-        appBar: HomeAppBar(),
-        body: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 10,
-              ),
-              _doctorListToday(context),
-              const SizedBox(
-                height: 20,
-              ),
-              _quequeBox(),
-              const SizedBox(
-                height: 20,
-              ),
-              Expanded(
-                child: ListView.builder(
-                    itemCount: 3,
-                    shrinkWrap: true,
-                    itemBuilder: ((context, index) => Container(
-                          margin: EdgeInsets.only(bottom: 15),
-                          child: Row(
-                            children: [
-                              Image.asset("assets/images/articles_1.png"),
-                              SizedBox(
-                                width: 15,
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Poli Anak : 256 B",
-                                    style: GoogleFonts.poppins(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black87),
-                                  ),
-                                  SizedBox(
-                                    width: size.width / 1.5,
-                                    child: Text(
-                                      "Pada tahun ini Hari Kesehatan Sedunia ini mengusung tema “Our Planet, Our Health” yang artinya “Planet kita, Kesehatan kita.”",
-                                      style: GoogleFonts.poppins(
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.normal,
-                                          color: Colors.grey),
-                                    ),
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                        ))),
-              )
-            ],
-          ),
-        ),
-      ),
+          appBar: HomeAppBar(),
+          body: Padding(
+            padding: EdgeInsets.all(20),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 10,
+                ),
+                _doctorListDay(context),
+                SizedBox(
+                  height: 20,
+                ),
+                _queueBox(),
+                SizedBox(
+                  height: 20,
+                ),
+                _articlesList(context, size),
+              ],
+            ),
+          )),
     );
   }
 
-  Row _quequeBox() {
+  Expanded _articlesList(BuildContext context, Size size) {
+    return Expanded(
+        child: ListView.builder(
+            itemCount: 3,
+            itemBuilder: ((context, index) => Container(
+                  margin: EdgeInsets.only(bottom: 15),
+                  child: Row(
+                    children: [
+                      Image.asset("assets/images/articles_1.png"),
+                      SizedBox(
+                        width: 15,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Hari Kesehatan Dunia",
+                            style: GoogleFonts.poppins(
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black87),
+                          ),
+                          SizedBox(
+                            width: size.width / 1.5,
+                            child: Text(
+                              "Pada tahun ini Hari Kesehatan Sedunia ini mengusung tema “Our Planet, Our Health” yang artinya “Planet kita, Kesehatan kita.",
+                              style: GoogleFonts.poppins(
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.normal,
+                                  color: Colors.grey),
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                ))));
+  }
+
+  Row _queueBox() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -84,7 +84,7 @@ class HomePage extends StatelessWidget {
               width: 5,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: Color(0xff2E2E2E)),
+                  color: Color(0xff2e2e2e)),
             ),
             SizedBox(
               width: 10,
@@ -93,9 +93,9 @@ class HomePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Queue number",
+                  "Queue Number",
                   style: GoogleFonts.poppins(
-                      fontSize: 12,
+                      fontSize: 14,
                       fontWeight: FontWeight.normal,
                       color: Colors.grey),
                 ),
@@ -105,7 +105,7 @@ class HomePage extends StatelessWidget {
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
                       color: Colors.black87),
-                )
+                ),
               ],
             )
           ],
@@ -116,7 +116,7 @@ class HomePage extends StatelessWidget {
             Text(
               "Queue Now",
               style: GoogleFonts.poppins(
-                  fontSize: 12,
+                  fontSize: 14,
                   fontWeight: FontWeight.normal,
                   color: Colors.grey),
             ),
@@ -126,14 +126,14 @@ class HomePage extends StatelessWidget {
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
                   color: Colors.black87),
-            )
+            ),
           ],
         )
       ],
     );
   }
 
-  Column _doctorListToday(BuildContext context) {
+  Column _doctorListDay(BuildContext context) {
     return Column(
       children: [
         Row(
@@ -146,26 +146,27 @@ class HomePage extends StatelessWidget {
                   fontWeight: FontWeight.normal,
                   color: Colors.grey),
             ),
-            const Icon(
+            Icon(
               Icons.navigate_next_outlined,
               color: Colors.grey,
-            )
+            ),
           ],
         ),
-        const SizedBox(
+        SizedBox(
           height: 10,
         ),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Container(
                 width: 160,
-                margin: const EdgeInsets.only(right: 10),
-                padding: const EdgeInsets.all(12),
+                margin: EdgeInsets.only(right: 10),
+                padding: EdgeInsets.all(12),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
-                    color: const Color(0xff0BB5EB)),
+                    color: Color(0xff0bb5eb)),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -173,7 +174,7 @@ class HomePage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Image.asset("assets/images/image_profile_2.png"),
-                        const SizedBox(
+                        SizedBox(
                           width: 10,
                         ),
                         Column(
@@ -191,12 +192,12 @@ class HomePage extends StatelessWidget {
                                   fontSize: 14,
                                   fontWeight: FontWeight.normal,
                                   color: Colors.white),
-                            ),
+                            )
                           ],
-                        ),
+                        )
                       ],
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: 15,
                     ),
                     Text(
@@ -206,21 +207,99 @@ class HomePage extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           color: Colors.white),
                     ),
-                    const SizedBox(
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Material(
+                      color: Color(0xff00a067),
+                      borderRadius: BorderRadius.circular(8),
+                      child: InkWell(
+                        focusColor: Color(0xff00a067),
+                        borderRadius: BorderRadius.circular(8),
+                        splashColor: Colors.blue,
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: ((context) => ScheduleDetail())));
+                        },
+                        child: Container(
+                          width: double.infinity,
+                          padding: EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Text(
+                            "Schedule",
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.poppins(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                width: 160,
+                margin: EdgeInsets.only(right: 10),
+                padding: EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    color: Color(0xffbfc6ff)),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Image.asset("assets/images/image_profile_2.png"),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Column(
+                          children: [
+                            Text(
+                              "Monday",
+                              style: GoogleFonts.poppins(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                  color: Colors.white),
+                            ),
+                            Text(
+                              "14:20 AM",
+                              style: GoogleFonts.poppins(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                  color: Colors.white),
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Text(
+                      "dr. Anggeline Finn",
+                      style: GoogleFonts.poppins(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    ),
+                    SizedBox(
                       height: 15,
                     ),
                     InkWell(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: ((context) => ScheduleDetail())));
-                      },
+                      onTap: () {},
                       child: Container(
                         width: double.infinity,
-                        padding: const EdgeInsets.all(8),
+                        padding: EdgeInsets.all(8),
                         decoration: BoxDecoration(
-                          color: const Color(0xff00A067),
+                          color: Color(0xff9B7676),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: Text(
@@ -238,11 +317,11 @@ class HomePage extends StatelessWidget {
               ),
               Container(
                 width: 160,
-                margin: const EdgeInsets.only(right: 10),
-                padding: const EdgeInsets.all(12),
+                margin: EdgeInsets.only(right: 10),
+                padding: EdgeInsets.all(12),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
-                    color: const Color(0xffBFC6FF)),
+                    color: Color(0xffbfc6ff)),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -250,7 +329,7 @@ class HomePage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Image.asset("assets/images/image_profile_2.png"),
-                        const SizedBox(
+                        SizedBox(
                           width: 10,
                         ),
                         Column(
@@ -268,12 +347,12 @@ class HomePage extends StatelessWidget {
                                   fontSize: 14,
                                   fontWeight: FontWeight.normal,
                                   color: Colors.white),
-                            ),
+                            )
                           ],
-                        ),
+                        )
                       ],
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: 15,
                     ),
                     Text(
@@ -283,92 +362,26 @@ class HomePage extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           color: Colors.white),
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: 15,
                     ),
-                    Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        color: const Color(0xff9B7676),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Text(
-                        "Schedule",
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.poppins(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              Container(
-                width: 160,
-                margin: const EdgeInsets.only(right: 10),
-                padding: const EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    color: const Color(0xffBFC6FF)),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Image.asset("assets/images/image_profile_2.png"),
-                        const SizedBox(
-                          width: 10,
+                    InkWell(
+                      onTap: () {},
+                      child: Container(
+                        width: double.infinity,
+                        padding: EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: Color(0xff9B7676),
+                          borderRadius: BorderRadius.circular(8),
                         ),
-                        Column(
-                          children: [
-                            Text(
-                              "Monday",
-                              style: GoogleFonts.poppins(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.normal,
-                                  color: Colors.white),
-                            ),
-                            Text(
-                              "14:20 AM",
-                              style: GoogleFonts.poppins(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.normal,
-                                  color: Colors.white),
-                            ),
-                          ],
+                        child: Text(
+                          "Schedule",
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.poppins(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
                         ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    Text(
-                      "dr. Anggeline Finn",
-                      style: GoogleFonts.poppins(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        color: const Color(0xff9B7676),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Text(
-                        "Schedule",
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.poppins(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white),
                       ),
                     )
                   ],
@@ -381,16 +394,13 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  //app bar home page
   AppBar HomeAppBar() {
     return AppBar(
       elevation: 0,
       backgroundColor: Colors.transparent,
       leading: Container(
         margin: EdgeInsets.only(left: 20),
-        child: Image.asset(
-          'assets/images/image_profile.png',
-        ),
+        child: Image.asset("assets/images/image_profile.png"),
       ),
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -403,9 +413,9 @@ class HomePage extends StatelessWidget {
                 color: Colors.grey),
           ),
           Text(
-            "Marchelliinoo",
+            "Marchellinoo",
             style: GoogleFonts.poppins(
-                fontSize: 14,
+                fontSize: 12,
                 fontWeight: FontWeight.bold,
                 color: Colors.black87),
           )
@@ -413,12 +423,12 @@ class HomePage extends StatelessWidget {
       ),
       actions: [
         Padding(
-          padding: const EdgeInsets.only(right: 20),
+          padding: EdgeInsets.only(right: 20),
           child: Image.asset(
-            'assets/logo/burger_icon.png',
+            "assets/logo/burger_icon.png",
             alignment: Alignment.centerRight,
           ),
-        ),
+        )
       ],
     );
   }
